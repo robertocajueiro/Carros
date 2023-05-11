@@ -116,12 +116,12 @@ public class CarroDAO extends BaseDAO {
 		Carro c = new Carro();
 		c.setId(rs.getLong("id"));
 		c.setNome(rs.getString("nome"));
-		c.setDesc("descricao");
-		c.setUrlFoto("url_foto");
-		c.setUrlVideo("url_video");
-		c.setLatitude("latitude");
-		c.setLongitude("longitude");
-		c.setTipo("tipo");
+		c.setDesc(rs.getString("descricao"));
+		c.setUrlFoto(rs.getString("url_foto"));
+		c.setUrlVideo(rs.getString("url_video"));
+		c.setLatitude(rs.getString("latitude"));
+		c.setLongitude(rs.getString("longitude"));
+		c.setTipo(rs.getString("tipo"));
 		return c;
 	}
 	
@@ -131,11 +131,11 @@ public class CarroDAO extends BaseDAO {
 		try {
 			conn = getConnection();
 			if (c.getId() == null) {
-				stmt = conn.prepareStatement("insert into carro (nome, descricao,url_foto,"
+				stmt = conn.prepareStatement("insert into carro (nome, descricao, url_foto,"
 						+ " url_video, latitude, longitude, tipo) VALUES(?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 			} else {
-				stmt = conn.prepareStatement("update carro set nome=?, descricao=?. url_foto=?,"
+				stmt = conn.prepareStatement("update carro set nome=?, descricao=?, url_foto=?,"
 						+ "url_video=?, latitude=?, longitude=?, tipo=? where id=?");
 			}
 			
