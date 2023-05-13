@@ -8,7 +8,7 @@ public class BaseDAO {
 	public BaseDAO() {
 		try {
 			// Necessario para utilizar o driver JDBC do MySQL
-			Class.forName("com.myslq.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// Erro de driver JDBC (adicione o driver .jar do MySQL em /WEB-INF/lib)
 			e.printStackTrace();
